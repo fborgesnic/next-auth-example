@@ -37,6 +37,7 @@ export const authOptions: NextAuthOptions = {
       token: any;
       user: any;
     }) {
+      console.log(token);
       // Send properties to the client, like an access_token and user id from a provider.
       session.accessToken = token.accessToken;
       session.user.id = token.id;
@@ -46,6 +47,10 @@ export const authOptions: NextAuthOptions = {
   },
   session: {
     strategy: "jwt",
+  },
+  pages: {
+    signIn: "/login",
+    signOut: "/logout",
   },
 };
 
